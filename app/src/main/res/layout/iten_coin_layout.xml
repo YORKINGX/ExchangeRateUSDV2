@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/flagCoin"
+        android:src="@drawable/ic_coin_rates_base"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="@dimen/image_retos_margin_left"
+        android:layout_marginLeft="@dimen/image_retos_margin_left"
+        android:layout_marginRight="@dimen/image_retos_margin_right"/>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/flagCoin"
+        android:layout_marginBottom="@dimen/image_retos_margin_left"
+        android:layout_marginRight="@dimen/padding_xxnormal">
+
+
+        <TextView
+            android:id="@+id/simbolCoin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="$:"
+            android:textColor="@color/black"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/changeCoin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_toEndOf="@+id/simbolCoin"
+            android:text="13.4554"
+            android:textColor="@color/black"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/descCoin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/changeCoin"
+            android:text="GPB Libra del Reino Unido" />
+
+        <TextView
+            android:id="@+id/unidCoin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/descCoin"
+            android:text="1 USD = 0.2333 YEN" />
+
+        <ImageButton
+            android:id="@+id/graphicCoin"
+            android:layout_width="50dp"
+            android:layout_height="30dp"
+            android:layout_alignParentRight="true"
+            android:src="@android:drawable/ic_menu_set_as" />
+
+
+    </RelativeLayout>
+
+
+</LinearLayout>

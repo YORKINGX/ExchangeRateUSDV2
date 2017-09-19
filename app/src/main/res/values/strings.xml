@@ -1,0 +1,139 @@
+<resources>
+    <string name="app_name">Changecoin</string>
+    <string name="facebook_app_id">263082974164682</string>
+    <string name="facebook_app_id2">1864063427173250</string>
+
+
+    <!---Errors-->
+    <string name="connection_error">Error en la conexión</string>
+
+    <!---Onboarding-->
+    <string name="text_skip">SALTAR</string>
+    <string name="text_next">SIGUIENTE</string>
+    <string name="text_onboarding_title1">¡TE RETO AL BOTTLE FLIP!</string>
+    <string name="text_onboarding_text1">Flipea y conviértete en el Número 1 lanzando tu botella: sube tus videos, añádeles stickers y ¡gana puntos!</string>
+    <string name="text_onboarding_title2">¡COMPITE POR EL PRIMER PUESTO!</string>
+    <string name="text_onboarding_text2">Podrás ver en que posición te encuentras en el Ranking de Bottle Flip Challenge… mira tu puntuación y ¡consigue ser el mejor!</string>
+    <string name="text_onboarding_title3">¡TUS VIDEOS EN YOUTUBE!</string>
+    <string name="text_onboarding_text3">Descubre el Canal Bottle Flip Challenge en Youtube, mira como tus amigos hacen maravillas con sus botellas… ¡Consigue con tu botella un gran Challenge y compártelo!</string>
+
+    <!---Welcome-->
+    <string name="login">INICIAR SESIÓN</string>
+    <string name="register">REGISTRARSE</string>
+
+    <!---Login-->
+    <string name="user">Usuario</string>
+    <string name="password">Contraseña</string>
+    <string name="forgot_password">¿Olvidaste tu contraseña?</string>
+    <string name="facebook_login">Seguir con Facebook</string>
+    <string name="current_pass_required">Current password is required</string>
+    <string name="new_pass_required">New password is required</string>
+    <string name="password_not_macth">Password does not match</string>
+    <string name="password_updated">Password updated successfully</string>
+    <string name="bad_credentials">Correo electrónico o contraseña inválida</string>
+    <string name="invalid_email">Correo electrónico inválido</string>
+    <string name="pass_required">Contraseña es requerida</string>
+    <string name="username_required">El nombre de usuario es requerido</string>
+    <string name="recover_password">RECUPERAR CONTRASEÑA</string>
+    <string name="user_not_exist">El usuario no existe</string>
+    <string name="email_not_exist">El correo electrónico no es válido o no existe</string>
+    <string name="email_password_sent">Se le ha enviado un correo electrónico para reestablecer su contraseña</string>
+
+
+    <!---Register-->
+    <string name="complete_your_account">COMPLETA TU CUENTA</string>
+    <string name="include_code">Introduce el código que tienes en tu set de stickers:</string>
+    <string name="bottle_code">Código botella</string>
+    <string name="text_continue">CONTINUAR</string>
+    <string name="continue_without_code">Continuar <strong>sin código</strong> </string>
+    <string name="alert_conitnue_no_code">Puedes seguir navegando por nuestra app sin activar todavía el código. Esta opción no desbloquea todas las funcionalidades de la aplicación.</string>
+    <string name="cancel">Cancelar</string>
+    <string name="accept">Aceptar</string>
+    <string name="register_with_mail">Registro con mail</string>
+    <string name="register_with_facebook">Registro con Facebook</string>
+    <string name="terms_and_conditions">A partir de tu registro, aceptas la Política de Privacidad y los Términos y Condiciones.</string>
+    <string name="email">E-mail</string>
+    <string name="bottle_code_required">El código de la botella es requerido</string>
+
+
+    <!-- Register -->
+    <string name="buttle_code">Código botella</string>
+    <string name="btn_continue">CONTINUAR</string>
+    <string name="text_title_register">COMPLETA TU CUENTA</string>
+    <string name="text_register_subtitle">Introduce el código que tienes en tu set de stickers:</string>
+    <string name="text_uncode">Continuar sin código</string>
+    <string name="error_register">Ha ocurrido un error durante el registro, por favor intente nuevamente.</string>
+    <string name="bottle_code_invalid">El código de la botella es inválido</string>
+    <string name="error_authentication">Ha ocurrido un error en la autenticación</string>
+    <string name="fail_authentication">Usuario o contraseña inválida</string>
+    <string name="registering">Registrando...</string>
+    <string name="user_already_exist">Usuario ya existe, por favor seleccione un nuevo nombre de usuario</string>
+
+
+    <!--Challenge -->
+    <string name="title_challenge">Retos</string>
+    <string name="title_ranking">Ranking</string>
+    <string name="title_others">Otros</string>
+    <string name="challenge">Reto</string>
+    <string name="do_challenge">HACER RETO</string>
+    <string name="no_camera">Su dispositivo no posee una cámara, por lo tanto no puede realizar el reto</string>
+    <string name="alert_no_code">Esta funcionalidad está limitada porque aún no vinculaste tu botella, si quieres disfrutar de todo lo que te ofrece la app, pulsa "Vincular". Si prefieres seguir navegando, pulsa "Entendido".</string>
+    <string name="need_bottle">Necesitas una bottle!</string>
+    <string name="understood">Entendido</string>
+    <string name="link">Vincular</string>
+    <string name="error_recording">Error grabando el video.</string>
+    <string name="pts">Pts</string>
+    <string name="cancel_record">Cancelada la grabación del video</string>
+    <string name="friends">Amigos</string>
+    <string name="tutorial">TUTORIAL</string>
+    <string name="my_challenge">MI RETO</string>
+    <string name="improve_challenge">MEJORAR RETO</string>
+    <string name="share_recomendation">Descárgate ya la alucinante aplicación "BottleFlip!" y Flipea como yo! www.bottleflip.com.es</string>
+    <string name="share_video">Permítanme recomendaros este video</string>
+    <string name="share_challenge">¡Comparte tu reto!</string>
+    <string name="choose_one">Escoge uno</string>
+    <string name="error_loading_video">Error cargando el video.</string>
+    <string name="upload">Subir archivo</string>
+    <string name="upload_in_progress">Subiendo video en progreso</string>
+    <string name="upload_completed">Video subido exitosamente</string>
+    <string name="challenge_uploaded">Reto guardado exitosamente.</string>
+    <string name="upload_error">Error en la carga de archivo</string>
+    <string name="upload_error_try_again">Error en la carga de archivo, vuelva a presionar APLICAR para intentar nuevamente</string>
+    <string name="view_my_challenge">Ver retos</string>
+    <string name="free_style_video">FREE STYLE VIDEO</string>
+    <string name="free_style_challenge">Reto free style</string>
+    <string name="challenge_in_review">En espera de puntuacion</string>
+    <string name="attemp_text">° intento</string>
+    <string name="you_got">¡Has conseguido</string>
+    <string name="points">puntos</string>
+    <string name="challenge_submitted">Tu reto ha sido cargado. En un plazo de 48 horas recibirás tu puntuación</string>
+    <string name="editing_video">Editando video</string>
+
+
+    <!-- Perfil -->
+    <string name="text_comparte_app">Comparte la app</string>
+    <string name="text_help">Ayuda</string>
+    <string name="text_link">Vincular botella</string>
+    <string name="text_terms">Términos y condiciones</string>
+    <string name="text_policy">Política de privacidad</string>
+    <string name="text_logout">Cerrar sesión</string>
+
+    <!-- LinkBottle -->
+    <string name="text_link_bottle">VINCULA TU BOTELLA</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="create_user_label">CREA TU USUARIO:</string>
+    <string name="link_user_instruction">Registra el código con un usuario y podrás empezar a competir!</string>
+
+    <!-- MENU -->
+    <string name="menu_apply">APLICAR</string>
+
+    <string name="property_share">Propiedad de Giochi Preziosi · Versión 1.0</string>
+    <string name="go_youtube_channel">IR AL CANAL YOUTUBE</string>
+    <string name="share_app_message">"¡Comparte la aplicación en \ntus redes!</string>
+    <string name="share_app_title">"Comparte la app</string>
+    <string name="title_activity_main2">Main2Activity</string>
+
+
+</resources>
