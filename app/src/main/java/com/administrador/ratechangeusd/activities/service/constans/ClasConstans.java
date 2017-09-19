@@ -19,6 +19,7 @@ public class ClasConstans {
     public  static final String GET_SERVICE ="2017-06-03?base=USD&symbols=GBP";
     public static String GET_URL_ENDPOIN = "?base=USD&symbols=";
     public static final String LABEL_COIN_BASE = "base";
+    public static final String VALUE_COIN_BASE = "USD";
     public static final String LABEL_DATE_CHANGE = "date";
     public static final String VALUE_CONTAINER_COIN = "rates";
     public static final int FLAG_COIN_GBP = R.drawable.ic_uk_flag;

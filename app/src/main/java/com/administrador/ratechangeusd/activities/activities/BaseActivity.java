@@ -214,6 +214,15 @@ public class BaseActivity extends AppCompatActivity {
          return dates;
     }
 
+public Double stringNumeric(String symbolvalue)
+{
+    String doubleValue;
+    doubleValue = symbolvalue.substring(7,symbolvalue.length()-1);
+    return Double.parseDouble(doubleValue);
+
+}
+
+
 
 
 

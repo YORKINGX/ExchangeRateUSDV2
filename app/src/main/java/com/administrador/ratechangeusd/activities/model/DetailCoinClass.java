@@ -6,5 +6,19 @@ package com.administrador.ratechangeusd.activities.model;
 
 public class DetailCoinClass {
     private Double rateCoin;
-    private String dateRates;
+
+    public DetailCoinClass() {
+    }
+
+    public DetailCoinClass(Double rateCoin) {
+        this.rateCoin = rateCoin;
+    }
+
+    public Double getRateCoin() {
+        return rateCoin;
+    }
+
+    public void setRateCoin(Double rateCoin) {
+        this.rateCoin = rateCoin;
+    }
 }

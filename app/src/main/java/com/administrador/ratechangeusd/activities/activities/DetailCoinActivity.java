@@ -45,9 +45,11 @@ public class DetailCoinActivity extends BaseActivity {
     String containerValue;
     String rates = "rates";
     String baseCoin;
+    String value;
     String changeFechRates;
     Double castRate;
     ArrayList <String> dates = new ArrayList<>();
+    ArrayList <Double> datesCoin = new ArrayList<>();
     ArrayList <DetailCoinClass> dates1 = new ArrayList<DetailCoinClass>();
 
     @Override
@@ -59,16 +61,15 @@ public class DetailCoinActivity extends BaseActivity {
 
        dates = datesOfInquiries();
 
-
-
        /// GET_SERVICE = dates.get(1).toString()+ GET_URL_ENDPOIN + simbol;
 
+        for ( int i= 0; i< dates.size(); i++) {
 
-        detailOfCoin();
-
+            detailOfCoin(dates.get(i).toString(), VALUE_COIN_BASE, "GBP");
+        }
     }
 
-    public void  detailOfCoin(){
+    public void detailOfCoin(String dates, String base, String symbols){
 
         ServiceManager.getCoinRatesUsddetail(new CallBackChangeRates() {
             @Override
@@ -77,15 +78,17 @@ public class DetailCoinActivity extends BaseActivity {
                 JsonObject jsonObject = ListCoinRates;
                 Gson gson = new Gson();
                 for (Map.Entry<String,JsonElement> entry : jsonObject.entrySet()){
-                    RatesUsd mRatesCoin = new RatesUsd();
+                    DetailCoinClass mRatesCoin = new DetailCoinClass();
                     containerValue = entry.getKey();
 
                     if (containerValue.equals(LABEL_COIN_BASE)){baseCoin = entry.getValue().toString();}
                     if (containerValue.equals(LABEL_DATE_CHANGE)){changeFechRates = entry.getValue().toString();}
                     if (containerValue.equals(VALUE_CONTAINER_COIN)){
-                        // String date = (DateFormat.format("dd-MM-yyyy", new java.util.Date()).toString());
-                        mRatesCoin = gson.fromJson(entry.getValue(), RatesUsd.class);
 
+                       // String date = (DateFormat.format("dd-MM-yyyy", new java.util.Date()).toString());
+                        //mRatesCoin = gson.fromJson(entry.getValue(), DetailCoinClass.class);
+                        value = entry.getValue().toString();
+                        datesCoin.add(stringNumeric(value));
                      /*   mObjRateCoinsBase = new RateCoinsBase();
                         mObjRateCoinsBase.setIdImagen(FLAG_COIN_BRL);
                         castRate = mRatesCoin.getBRL()* rateActual;
@@ -108,7 +111,7 @@ public class DetailCoinActivity extends BaseActivity {
              //   Toast.makeText(MainActivity2.this,msgError,Toast.LENGTH_LONG).show();
 
             }
-        },"2017-06-03","USD","GBP");
+        },dates,base,symbols);
 
 
     }
