@@ -50,7 +50,7 @@ public class DetailCoinActivity extends BaseActivity {
     Double castRate;
     ArrayList <String> dates = new ArrayList<>();
     ArrayList <Double> datesCoin = new ArrayList<>();
-    ArrayList <DetailCoinClass> dates1 = new ArrayList<DetailCoinClass>();
+    ArrayList <DetailCoinClass> detailCoin = new ArrayList<DetailCoinClass>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,9 +63,16 @@ public class DetailCoinActivity extends BaseActivity {
 
        /// GET_SERVICE = dates.get(1).toString()+ GET_URL_ENDPOIN + simbol;
 
-        for ( int i= 0; i< dates.size(); i++) {
+        for ( int i= 0; i <= dates.size(); i++) {
 
-            detailOfCoin(dates.get(i).toString(), VALUE_COIN_BASE, "GBP");
+            //DetailCoinClass objDetalCoin = new DetailCoinClass();
+            detailOfCoin(dates.get(i), VALUE_COIN_BASE, "GBP");
+            //objDetalCoin.setDateChange(dates.get(i));
+          //  if (datesCoin.get(i) > 0)
+         //   objDetalCoin.setRateCoin(datesCoin.get(i));
+           // detailCoin.add(objDetalCoin);
+
+            //detailCoin
         }
     }
 
@@ -85,10 +92,10 @@ public class DetailCoinActivity extends BaseActivity {
                     if (containerValue.equals(LABEL_DATE_CHANGE)){changeFechRates = entry.getValue().toString();}
                     if (containerValue.equals(VALUE_CONTAINER_COIN)){
 
-                       // String date = (DateFormat.format("dd-MM-yyyy", new java.util.Date()).toString());
-                        //mRatesCoin = gson.fromJson(entry.getValue(), DetailCoinClass.class);
+
                         value = entry.getValue().toString();
                         datesCoin.add(stringNumeric(value));
+
                      /*   mObjRateCoinsBase = new RateCoinsBase();
                         mObjRateCoinsBase.setIdImagen(FLAG_COIN_BRL);
                         castRate = mRatesCoin.getBRL()* rateActual;
@@ -108,7 +115,7 @@ public class DetailCoinActivity extends BaseActivity {
             @Override
             public void onError(String msgError, int indError) {
 
-             //   Toast.makeText(MainActivity2.this,msgError,Toast.LENGTH_LONG).show();
+             //  Toast.makeText(MainActivity2.this,msgError,Toast.LENGTH_LONG).show();
 
             }
         },dates,base,symbols);

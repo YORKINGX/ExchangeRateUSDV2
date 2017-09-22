@@ -6,12 +6,14 @@ package com.administrador.ratechangeusd.activities.model;
 
 public class DetailCoinClass {
     private Double rateCoin;
+    private String dateChange;
 
     public DetailCoinClass() {
     }
 
-    public DetailCoinClass(Double rateCoin) {
+    public DetailCoinClass(Double rateCoin, String dateChange) {
         this.rateCoin = rateCoin;
+        this.dateChange = dateChange;
     }
 
     public Double getRateCoin() {
@@ -20,5 +22,13 @@ public class DetailCoinClass {
 
     public void setRateCoin(Double rateCoin) {
         this.rateCoin = rateCoin;
+    }
+
+    public String getDateChange() {
+        return dateChange;
+    }
+
+    public void setDateChange(String dateChange) {
+        this.dateChange = dateChange;
     }
 }

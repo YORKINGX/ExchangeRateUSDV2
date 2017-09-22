@@ -38,13 +38,13 @@ public class ServiceManager {
         });}
 
 
-    public static void getCoinRatesUsddetail(final CallBackChangeRates callBackCoinRates, String A, String B, String C) {
+    public static void getCoinRatesUsddetail(final CallBackChangeRates callBackCoinRates, String date, String base, String symbols) {
 
         ServiceInterface serviceInterface = ServiceHelper.getInstance();
 
         final JsonObject[] jsonObjectListCoinRates = {new JsonObject()};
 
-        serviceInterface.getCoinRatesApart(A,B,C).enqueue(new Callback<JsonObject>() {
+        serviceInterface.getCoinRatesApart(date,base,symbols).enqueue(new Callback<JsonObject>() {
 
             @Override
             public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
