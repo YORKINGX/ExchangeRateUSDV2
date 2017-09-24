@@ -1,5 +1,6 @@
 package com.administrador.ratechangeusd.activities.activities;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.format.DateFormat;
@@ -42,13 +43,16 @@ import static com.administrador.ratechangeusd.activities.service.constans.ClasCo
 public class DetailCoinActivity extends BaseActivity {
 
     String simbol = "JBY";
+    String coinSymbols;
     String containerValue;
     String rates = "rates";
+    int contadorDates = 0;
     String baseCoin;
     String value;
     String changeFechRates;
     Double castRate;
-    ArrayList <String> dates = new ArrayList<>();
+    ArrayList <String> arrayDates = new ArrayList<>();
+    ArrayList <Float> arrayXDates = new ArrayList<>();
     ArrayList <Double> datesCoin = new ArrayList<>();
     ArrayList <DetailCoinClass> detailCoin = new ArrayList<DetailCoinClass>();
 
@@ -56,24 +60,18 @@ public class DetailCoinActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
+        Bundle datos = this.getIntent().getExtras();
 
-        //GET_URL_ENDPOIN
+        arrayDates = datesOfInquiries();
+        arrayXDates = datesXOfInquiries(arrayDates);
 
-       dates = datesOfInquiries();
+            coinSymbols = datos.getString("CoinKilick").substring(0,3);
 
-       /// GET_SERVICE = dates.get(1).toString()+ GET_URL_ENDPOIN + simbol;
+            for (int i = 0; i < arrayDates.size(); i++) {
 
-        for ( int i= 0; i <= dates.size(); i++) {
+                detailOfCoin(arrayDates.get(i).toString(), VALUE_COIN_BASE, coinSymbols);
 
-            //DetailCoinClass objDetalCoin = new DetailCoinClass();
-            detailOfCoin(dates.get(i), VALUE_COIN_BASE, "GBP");
-            //objDetalCoin.setDateChange(dates.get(i));
-          //  if (datesCoin.get(i) > 0)
-         //   objDetalCoin.setRateCoin(datesCoin.get(i));
-           // detailCoin.add(objDetalCoin);
-
-            //detailCoin
-        }
+            }
     }
 
     public void detailOfCoin(String dates, String base, String symbols){
@@ -92,38 +90,29 @@ public class DetailCoinActivity extends BaseActivity {
                     if (containerValue.equals(LABEL_DATE_CHANGE)){changeFechRates = entry.getValue().toString();}
                     if (containerValue.equals(VALUE_CONTAINER_COIN)){
 
-
+                        DetailCoinClass objDetalCoin = new DetailCoinClass();
                         value = entry.getValue().toString();
                         datesCoin.add(stringNumeric(value));
+                        objDetalCoin.setRateCoin(stringNumeric(value));
+                        objDetalCoin.setDateChange(arrayDates.get(contadorDates).toString());
+                        contadorDates ++;
+                        detailCoin.add(objDetalCoin);
 
-                     /*   mObjRateCoinsBase = new RateCoinsBase();
-                        mObjRateCoinsBase.setIdImagen(FLAG_COIN_BRL);
-                        castRate = mRatesCoin.getBRL()* rateActual;
-                        mObjRateCoinsBase.setRateCoin(castRate);
-                        mObjRateCoinsBase.setSimbolCoin(SIMBOL_BRL_COIN);
-                        mObjRateCoinsBase.setDesCoin(DESCRIPTION_COIN_BRL);
-                        mRateCoinBase.add(mObjRateCoinsBase);*/
                     }
                 }
-
-                //RatesCoinAdapter mAdapterCoin = new RatesCoinAdapter(getApplicationContext(),mRateCoinBase);
-                //view_reciler.setAdapter(mAdapterCoin);
-                //rateActual = 1;
 
             }
 
             @Override
             public void onError(String msgError, int indError) {
 
-             //  Toast.makeText(MainActivity2.this,msgError,Toast.LENGTH_LONG).show();
+            // Toast.makeText(MainActivity2.this,msgError,Toast.LENGTH_LONG).show();
 
             }
         },dates,base,symbols);
 
 
     }
-
-
 }
 
 

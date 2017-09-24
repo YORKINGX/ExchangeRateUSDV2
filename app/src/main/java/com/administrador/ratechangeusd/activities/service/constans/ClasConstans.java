@@ -31,7 +31,7 @@ public class ClasConstans {
     public static final String SIMBOL_JPY_COIN = "¥:";
     public static final String SIMBOL_BRL_COIN = "R$:";
 
-    public static final String DESCRIPTION_COIN_GBP = "GPB Libra del Reino Unido";
+    public static final String DESCRIPTION_COIN_GBP = "GBP Libra del Reino Unido";
     public static final String DESCRIPTION_COIN_EUR = "EUR Euro de Europa";
     public static final String DESCRIPTION_COIN_JPY = "JPY Jen de Japon";
     public static final String DESCRIPTION_COIN_BRL = "BRL Real Brasileño";

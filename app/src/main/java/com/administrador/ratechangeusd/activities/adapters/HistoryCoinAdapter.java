@@ -13,7 +13,6 @@ import android.widget.TextView;
 
 import com.administrador.ratechangeusd.R;
 import com.administrador.ratechangeusd.activities.activities.DetailCoinActivity;
-import com.administrador.ratechangeusd.activities.activities.MainActivity;
 import com.administrador.ratechangeusd.activities.model.RateCoinsBase;
 
 import java.text.DecimalFormat;
@@ -23,15 +22,15 @@ import java.util.ArrayList;
  * Created by Administrador on 27/07/2017.
  */
 
-public class RatesCoinAdapter extends RecyclerView.Adapter <RatesCoinAdapter.RatesCoinAvilableViewHolder>{
+public class HistoryCoinAdapter extends RecyclerView.Adapter <HistoryCoinAdapter.RatesCoinAvilableViewHolder>{
 
     Context mContext;
     ArrayList<RateCoinsBase> mLocalRatesCoin;
 
-    public RatesCoinAdapter() {
+    public HistoryCoinAdapter() {
     }
 
-    public RatesCoinAdapter(Context mContext, ArrayList<RateCoinsBase> mLocalRatesCoin) {
+    public HistoryCoinAdapter(Context mContext, ArrayList<RateCoinsBase> mLocalRatesCoin) {
         this.mContext = mContext;
         this.mLocalRatesCoin = mLocalRatesCoin;
     }
@@ -39,7 +38,7 @@ public class RatesCoinAdapter extends RecyclerView.Adapter <RatesCoinAdapter.Rat
     @Override
     public RatesCoinAvilableViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view_rates = LayoutInflater.from(parent.getContext()).inflate(R.layout.iten_coin_layout,parent,false);
-        RatesCoinAdapter.RatesCoinAvilableViewHolder vh_coin = new RatesCoinAdapter.RatesCoinAvilableViewHolder(view_rates);
+        HistoryCoinAdapter.RatesCoinAvilableViewHolder vh_coin = new HistoryCoinAdapter.RatesCoinAvilableViewHolder(view_rates);
         return vh_coin;
     }
 
@@ -101,7 +100,7 @@ public class RatesCoinAdapter extends RecyclerView.Adapter <RatesCoinAdapter.Rat
         TextView desCoin;
         TextView changeCoin;
 
-        ImageView detalGraphic;
+        ImageButton detalGraphic;
 
 
 
@@ -113,8 +112,7 @@ public class RatesCoinAdapter extends RecyclerView.Adapter <RatesCoinAdapter.Rat
             coinRatechange = (TextView) itemView.findViewById(R.id.changeCoin);
             desCoin = (TextView) itemView.findViewById(R.id.descCoin);
             changeCoin = (TextView) itemView.findViewById(R.id.changeCoin);
-            detalGraphic = (ImageView) itemView.findViewById(R.id.graphicCoin);
-
+            detalGraphic = (ImageButton) itemView.findViewById(R.id.graphicCoin);
 
 
         }
