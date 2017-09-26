@@ -218,15 +218,17 @@ public class BaseActivity extends AppCompatActivity {
     public ArrayList datesXOfInquiries (ArrayList dates){
         Float value;
         String valueX;
+        ArrayList<Float> ArrayDatesX = new ArrayList<>();
 
         for (int iterator = 0; iterator < dates.size(); iterator ++){
-            valueX = dates.get(iterator).toString().substring(9,10);
+            valueX = dates.get(iterator).toString().substring(8,10);
             value = Float.parseFloat(valueX);
+            ArrayDatesX.add(value);
         }
        // value = Float.parseFloat(dates.iterator().next().toString().substring(8,2));
 
 
-       return dates;
+       return ArrayDatesX;
     }
 
 public Double stringNumeric(String symbolvalue)

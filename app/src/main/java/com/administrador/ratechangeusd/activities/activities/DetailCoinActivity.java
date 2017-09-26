@@ -1,9 +1,11 @@
 package com.administrador.ratechangeusd.activities.activities;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.format.DateFormat;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 import static com.administrador.ratechangeusd.activities.service.constans.ClasConstans.*;
 import com.administrador.ratechangeusd.R;
@@ -39,7 +41,7 @@ import static com.administrador.ratechangeusd.activities.service.constans.ClasCo
 import static com.administrador.ratechangeusd.activities.service.constans.ClasConstans.SIMBOL_GPB_COIN;
 import static com.administrador.ratechangeusd.activities.service.constans.ClasConstans.SIMBOL_JPY_COIN;
 import static com.administrador.ratechangeusd.activities.service.constans.ClasConstans.VALUE_CONTAINER_COIN;
-
+import com.juang.jplot.PlotPlanitoXY;
 public class DetailCoinActivity extends BaseActivity {
 
     String simbol = "JBY";
@@ -53,13 +55,22 @@ public class DetailCoinActivity extends BaseActivity {
     Double castRate;
     ArrayList <String> arrayDates = new ArrayList<>();
     ArrayList <Float> arrayXDates = new ArrayList<>();
+    ArrayList <Float> arrayYDates = new ArrayList<>();
     ArrayList <Double> datesCoin = new ArrayList<>();
     ArrayList <DetailCoinClass> detailCoin = new ArrayList<DetailCoinClass>();
+
+   // Float [] X,Y;
+
+    private PlotPlanitoXY plot;
+    private LinearLayout pantalla;
+    Context context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
+        context=this;
+        pantalla= (LinearLayout) (findViewById(R.id.pantalla));
         Bundle datos = this.getIntent().getExtras();
 
         arrayDates = datesOfInquiries();
@@ -67,11 +78,24 @@ public class DetailCoinActivity extends BaseActivity {
 
             coinSymbols = datos.getString("CoinKilick").substring(0,3);
 
-            for (int i = 0; i < arrayDates.size(); i++) {
+         for (int i = 0; i < arrayDates.size(); i++) {
 
                 detailOfCoin(arrayDates.get(i).toString(), VALUE_COIN_BASE, coinSymbols);
 
             }
+
+     //   for (int i = 0; i < arrayXDates.size(); i++){
+
+       //     X[i] = arrayXDates.get(i);
+
+        //}
+
+      //  plot = new PlotPlanitoXY(context,"Titulo principal del grafico","titulo eje x","titulo eje y");
+        //  plot.SetSerie1(X,Y,"graph 1",5,true);// el 5 es el tamaño de punto "true" es para unir los puntos
+
+        //plot.SetHD(true); //ajustamos la calidad hd que suaviza bordes del grafico. por default esta desactivado
+        // plot.SetTouch(true);// activa el touch sobre el grafico no es necesario colocarlo ya que por default esta activado
+        //pantalla.addView(plot);
     }
 
     public void detailOfCoin(String dates, String base, String symbols){
@@ -80,7 +104,9 @@ public class DetailCoinActivity extends BaseActivity {
             @Override
             public void onSuccess(JsonObject ListCoinRates) {
 
+                Float [] X = new Float[0],Y = new Float[0];
                 JsonObject jsonObject = ListCoinRates;
+                Float valueY;
                 Gson gson = new Gson();
                 for (Map.Entry<String,JsonElement> entry : jsonObject.entrySet()){
                     DetailCoinClass mRatesCoin = new DetailCoinClass();
@@ -94,9 +120,15 @@ public class DetailCoinActivity extends BaseActivity {
                         value = entry.getValue().toString();
                         datesCoin.add(stringNumeric(value));
                         objDetalCoin.setRateCoin(stringNumeric(value));
+                        valueY = stringNumeric(value).floatValue();
+                        arrayYDates.add(valueY);
+
+                        Y[contadorDates] = valueY;
+                        X[contadorDates] = arrayXDates.get(contadorDates);
+
                         objDetalCoin.setDateChange(arrayDates.get(contadorDates).toString());
                         contadorDates ++;
-                        detailCoin.add(objDetalCoin);
+                        //detailCoin.add(objDetalCoin);
 
                     }
                 }

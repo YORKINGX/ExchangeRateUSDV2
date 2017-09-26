@@ -5,6 +5,8 @@
       <module fileurl="file://$PROJECT_DIR$/ExchangeRateUSD.iml" filepath="$PROJECT_DIR$/ExchangeRateUSD.iml" />
       <module fileurl="file://$PROJECT_DIR$/ExchangeRateUSDV2.iml" filepath="$PROJECT_DIR$/ExchangeRateUSDV2.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jplot1.1/jplot1.1.iml" filepath="$PROJECT_DIR$/jplot1.1/jplot1.1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jplot1.2/jplot1.2.iml" filepath="$PROJECT_DIR$/jplot1.2/jplot1.2.iml" />
     </modules>
   </component>
 </project>
