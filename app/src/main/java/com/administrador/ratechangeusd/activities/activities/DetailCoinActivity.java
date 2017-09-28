@@ -5,16 +5,23 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.format.DateFormat;
+import android.util.Log;
 import android.widget.LinearLayout;
 import android.widget.Toast;
+
+import static android.content.ContentValues.TAG;
 import static com.administrador.ratechangeusd.activities.service.constans.ClasConstans.*;
 import com.administrador.ratechangeusd.R;
 import com.administrador.ratechangeusd.activities.adapters.RatesCoinAdapter;
+import com.administrador.ratechangeusd.activities.database.dbHistoryChangeRate;
+import com.administrador.ratechangeusd.activities.model.CoordenatesXYClass;
 import com.administrador.ratechangeusd.activities.model.DetailCoinClass;
 import com.administrador.ratechangeusd.activities.model.RateCoinsBase;
 import com.administrador.ratechangeusd.activities.model.RatesUsd;
 import com.administrador.ratechangeusd.activities.service.ServiceManager;
 import com.administrador.ratechangeusd.activities.service.callback.CallBackChangeRates;
+import com.administrador.ratechangeusd.activities.service.servicemodel.ServiceModelClass;
+import com.facebook.stetho.Stetho;
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
@@ -42,6 +49,13 @@ import static com.administrador.ratechangeusd.activities.service.constans.ClasCo
 import static com.administrador.ratechangeusd.activities.service.constans.ClasConstans.SIMBOL_JPY_COIN;
 import static com.administrador.ratechangeusd.activities.service.constans.ClasConstans.VALUE_CONTAINER_COIN;
 import com.juang.jplot.PlotPlanitoXY;
+
+import io.realm.DynamicRealm;
+import io.realm.Realm;
+import io.realm.RealmConfiguration;
+import io.realm.RealmMigration;
+import io.realm.RealmResults;
+
 public class DetailCoinActivity extends BaseActivity {
 
     String simbol = "JBY";
@@ -58,19 +72,37 @@ public class DetailCoinActivity extends BaseActivity {
     ArrayList <Float> arrayYDates = new ArrayList<>();
     ArrayList <Double> datesCoin = new ArrayList<>();
     ArrayList <DetailCoinClass> detailCoin = new ArrayList<DetailCoinClass>();
+    ArrayList <CoordenatesXYClass> arrayXY = new ArrayList<>();
+    float X,Y;
 
-   // Float [] X,Y;
-
-    private PlotPlanitoXY plot;
-    private LinearLayout pantalla;
     Context context;
-
+    private static final String TAG = "MyApplication";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Realm.init(this);
+        RealmConfiguration realmConfiguration = new RealmConfiguration.Builder()
+                .name("CoinHistory")
+                .schemaVersion(1)
+                .build();
+        Realm.setDefaultConfiguration(realmConfiguration);
+
+        ServiceModelClass serviceModel = new ServiceModelClass(Realm.getDefaultInstance());
+        serviceModel.CreateHistoryCoin(1,"BGP","2017-09-27","1","5");
+        serviceModel.getHistoryCoin();
+
+
+        dbHistoryChangeRate dbCoinHistory = new dbHistoryChangeRate();
         setContentView(R.layout.activity_main2);
         context=this;
-        pantalla= (LinearLayout) (findViewById(R.id.pantalla));
+
+
+
+
+
+
+
+         //pantalla= (LinearLayout) (findViewById(R.id.pantalla));
         Bundle datos = this.getIntent().getExtras();
 
         arrayDates = datesOfInquiries();
@@ -84,11 +116,11 @@ public class DetailCoinActivity extends BaseActivity {
 
             }
 
-     //   for (int i = 0; i < arrayXDates.size(); i++){
+        for (int i = 0; i < arrayXDates.size(); i++){
 
-       //     X[i] = arrayXDates.get(i);
+              arrayXDates.get(i);
 
-        //}
+         }
 
       //  plot = new PlotPlanitoXY(context,"Titulo principal del grafico","titulo eje x","titulo eje y");
         //  plot.SetSerie1(X,Y,"graph 1",5,true);// el 5 es el tamaño de punto "true" es para unir los puntos
@@ -104,7 +136,7 @@ public class DetailCoinActivity extends BaseActivity {
             @Override
             public void onSuccess(JsonObject ListCoinRates) {
 
-                Float [] X = new Float[0],Y = new Float[0];
+
                 JsonObject jsonObject = ListCoinRates;
                 Float valueY;
                 Gson gson = new Gson();
@@ -117,15 +149,18 @@ public class DetailCoinActivity extends BaseActivity {
                     if (containerValue.equals(VALUE_CONTAINER_COIN)){
 
                         DetailCoinClass objDetalCoin = new DetailCoinClass();
+                        CoordenatesXYClass objCoordXY = new CoordenatesXYClass();
                         value = entry.getValue().toString();
                         datesCoin.add(stringNumeric(value));
                         objDetalCoin.setRateCoin(stringNumeric(value));
                         valueY = stringNumeric(value).floatValue();
                         arrayYDates.add(valueY);
 
-                        Y[contadorDates] = valueY;
-                        X[contadorDates] = arrayXDates.get(contadorDates);
-
+                        Y = valueY.floatValue();
+                        X = arrayXDates.get(contadorDates).floatValue();
+                        objCoordXY.setX(X);
+                        objCoordXY.setY(Y);
+                        arrayXY.add(objCoordXY);
                         objDetalCoin.setDateChange(arrayDates.get(contadorDates).toString());
                         contadorDates ++;
                         //detailCoin.add(objDetalCoin);
@@ -146,5 +181,6 @@ public class DetailCoinActivity extends BaseActivity {
 
     }
 }
+
 
 

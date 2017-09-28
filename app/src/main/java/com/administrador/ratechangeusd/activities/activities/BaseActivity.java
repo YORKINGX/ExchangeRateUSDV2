@@ -38,7 +38,7 @@ import okhttp3.internal.http.RetryAndFollowUpInterceptor;
  * @version %I, %G
  * @since 1.0
  */
-public class BaseActivity extends AppCompatActivity {
+public class BaseActivity extends AppCompatActivity{
 
     private BaseUtils mSlashBaseUtils;
 
