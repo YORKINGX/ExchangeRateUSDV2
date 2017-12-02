@@ -21,7 +21,7 @@ public class ServiceModelClass {
 
         RealmResults<dbHistoryChangeRate> realmResults = realm.where(dbHistoryChangeRate.class).findAll();
 
-        return  realmResults.toArray(new dbHistoryChangeRate[realmResults.size()]);
+                return  realmResults.toArray(new dbHistoryChangeRate[realmResults.size()]);
 
     }
 
@@ -37,7 +37,7 @@ public class ServiceModelClass {
 
         realm.beginTransaction();
         dbHistoryChangeRate historyChangeRate = realm.createObject(dbHistoryChangeRate.class,id);
-        historyChangeRate.setId(1);
+      //  historyChangeRate.setId(1);
         historyChangeRate.setCoin(Coin);
         historyChangeRate.setDate(Date);
         historyChangeRate.setCoordX(Float.valueOf(coordX));

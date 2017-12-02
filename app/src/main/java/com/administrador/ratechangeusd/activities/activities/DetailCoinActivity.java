@@ -85,21 +85,16 @@ public class DetailCoinActivity extends BaseActivity {
                 .name("CoinHistory")
                 .schemaVersion(1)
                 .build();
-        Realm.setDefaultConfiguration(realmConfiguration);
+                Realm.setDefaultConfiguration(realmConfiguration);
 
         ServiceModelClass serviceModel = new ServiceModelClass(Realm.getDefaultInstance());
-        serviceModel.CreateHistoryCoin(1,"BGP","2017-09-27","1","5");
+        serviceModel.CreateHistoryCoin(3,"BGP","2017-09-27","1","5");
         serviceModel.getHistoryCoin();
 
 
         dbHistoryChangeRate dbCoinHistory = new dbHistoryChangeRate();
         setContentView(R.layout.activity_main2);
         context=this;
-
-
-
-
-
 
 
          //pantalla= (LinearLayout) (findViewById(R.id.pantalla));
